@@ -67,7 +67,12 @@ function LED1_Off(){
 
   // called when a message arrives
   function onMessageArrived(message) {
+  var espacio=",";
+  var SValue="0";
+  
     console.log("Nuevo mensaje:"+message.payloadString);
+	SValue=message.payloadString.split(espacio);
+	
     document.getElementById("sensor").innerHTML=message.payloadString;
   }
   
