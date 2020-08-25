@@ -4,7 +4,7 @@ function LED1_On() {
 	
 	console.log("led on");
         message = new Paho.MQTT.Message("LED1_ON");
-        message.destinationName = "ruberchiles@hotmail.es/test1";
+        message.destinationName = "crisandresveloz@hotmail.com/test";
         client.send(message);
         
   
@@ -13,7 +13,7 @@ function LED1_Off(){
 	
 	console.log("led off");
         message = new Paho.MQTT.Message("LED1_OFF")
-        message.destinationName = "ruberchiles@hotmail.es/test1";
+        message.destinationName = "crisandresveloz@hotmail.com/test";
         client.send(message);
 }
 
@@ -32,8 +32,8 @@ function LED1_Off(){
   client.onMessageArrived = onMessageArrived;
   var options = {
    useSSL: false,
-    userName: "ruberchiles@hotmail.es",
-    password: "Campeones1",
+    userName: "crisandresveloz@hotmail.com",
+    password: "260993lduq",
     onSuccess:onConnect,
     onFailure:doFail
   }
@@ -46,9 +46,9 @@ function LED1_Off(){
     // Once a connection has been made, make a subscription and send a message.
     console.log("Conectado...");
 	
-    client.subscribe("ruberchiles@hotmail.es/test");
+    client.subscribe("crisandresveloz@hotmail.com/test");
     message = new Paho.MQTT.Message("hola desde la web");
-    message.destinationName = "ruberchiles@hotmail.es/test1";
+    message.destinationName = "crisandresveloz@hotmail.com/test";
     client.send(message);
 	
   }
@@ -68,6 +68,6 @@ function LED1_Off(){
   // called when a message arrives
   function onMessageArrived(message) {
     console.log("Nuevo mensaje:"+message.payloadString);
-    document.getElementById("sensor").innerHTML=message.payloadString.split("=")[1];
+    document.getElementById("sensor").innerHTML=message.payloadString;
   }
   
